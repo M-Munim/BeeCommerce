@@ -13,237 +13,386 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Link from 'next/link';
+
+
+
+const products = [
+  {
+    id: 1,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Wildflower Honey",
+    discountedPrice: 12.99,
+    realPrice: 15.99,
+    category: "Recent Product"
+  },
+  {
+    id: 2,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Organic Clover Honey",
+    discountedPrice: 14.49,
+    realPrice: 18.49,
+    category: "Recent Product"
+  },
+  {
+    id: 3,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Acacia Honey",
+    discountedPrice: 10.99,
+    realPrice: 13.99,
+    category: "New Product"
+  },
+  {
+    id: 4,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Raw Manuka Honey",
+    discountedPrice: 25.99,
+    realPrice: 30.99,
+    category: "Featured"
+  },
+  {
+    id: 5,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Raw Manuka Honey",
+    discountedPrice: 25.99,
+    realPrice: 30.99,
+    category: "Featured"
+  },
+  {
+    id: 6,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Acacia Honey",
+    discountedPrice: 10.99,
+    realPrice: 13.99,
+    category: "New Product"
+  },
+  ,
+  {
+    id: 7,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Acacia Honey",
+    discountedPrice: 10.99,
+    realPrice: 13.99,
+    category: "New Product"
+  },
+  ,
+  {
+    id: 8,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Acacia Honey",
+    discountedPrice: 10.99,
+    realPrice: 13.99,
+    category: "New Product"
+  },
+  {
+    id: 9,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Wildflower Honey",
+    discountedPrice: 12.99,
+    realPrice: 15.99,
+    category: "Recent Product"
+  },
+  {
+    id: 10,
+    image: "/honeyBottle.svg",
+    rating: "/ratingStars.svg",
+    honeyName: "Organic Clover Honey",
+    discountedPrice: 14.49,
+    realPrice: 18.49,
+    category: "Recent Product"
+  },
+  // Add more products here
+];
 
 const page = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("Recent Product");
 
-  const handleSlideChange = (swiper) => {
-    setActiveIndex(swiper.activeIndex);
-  };
+  const filteredProducts = products.filter(
+    (product) => product.category === selectedCategory
+  );
 
-  const testimonials = [
-    { id: 1, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Nadine', location: 'New Mexico' },
-    { id: 2, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Rachael', location: 'UK' },
-    { id: 3, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Peter', location: 'Belgium' },
-    { id: 4, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Keri', location: 'UK' },
-    { id: 5, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Davide', location: 'London' },
-    { id: 6, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Keri', location: 'UK' },
-    { id: 7, text: 'Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem', name: 'Davide', location: 'London' },
-  ];
+  const buttonClasses = (category) =>
+    `w-[118px] h-10 rounded-[10px] text-[13.17px]  ${selectedCategory === category
+      ? "gradBtn text-white"
+      : "bg-white border border-[#F3A920] text-[#504E4E]"
+    }`;
 
   return (
-    <div className=''>
+    <div className='relative'>
+      <Image src="/bgImg.svg" alt="bg" width={100} height={100} className='w-9/12 h-auto absolute -z-10' />
+
+      <section className="min-h-screen relative z-20 flex text-[#504E4E] items-center justify-center px-4 md:px-16">
+        <Image
+          src="/2148371975 2.svg"
+          alt="bg"
+          width={100}
+          height={100}
+          className="w-20 h-[100px] md:w-40 md:h-[166px] absolute top-10 md:top-16 left-0 z-0"
+        />
+
+        <div className="w-full max-w-8xl flex flex-col-reverse md:flex-row items-center justify-between gap-8 z-10">
+          <div className="text-center md:text-left md:mt-20">
+            <h1 className="text-[#F3A920] text-2xl md:text-3xl md:text-[37px] pacifico">
+              Buzzing with Purity
+            </h1>
+            <h2 className="font-medium text-4xl lg:text-5xl xl:text-[64px] leading-tight">
+              Pure, Golden Goodness <br /> In Every Drop.
+            </h2>
+            <p className="text-lg md:text-xl my-5 max-w-md md:max-w-2xl mx-auto md:mx-0">
+              Our honey is 100% pure, unprocessed, and free from additives. Harvested directly from nature.
+            </p>
+
+            <button className="w-[140px] md:w-[118px] h-12 md:h-10 rounded-[10px] text-[14px] md:text-[13.17px] font-medium text-white gradBtn">
+              <Link href="#">
+                Shop Now
+              </Link>
+            </button>
+          </div>
+
+          <div className="flex justify-center">
+            <Image
+              src="/Group 1000001771.svg"
+              alt="bg"
+              width={596}
+              height={556}
+              className="w-[280px] md:w-[500px] lg:w-[596px] h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+
+      {/* <section className=' h-[622px] relative' id='about' style={{
+        backgroundImage: "url('/Group 1000001772.svg')",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}>
+        <Image src="/8e757c66dd3f4caa7823464e21c36bdc 1.svg" alt="bg" width={100} height={100} className='w-48 h-40 absolute -top-24 left-1/2' />
+
+
+        <h2 className='text-center font-semibold text-[30px] pt-20'>Trending Products</h2>
+        <hr className='bg-[#FFC300] h-1 w-[93px] m-auto rounded-full' />
+        <div className='mt-9'>
+          <div className="flex items-center justify-center gap-6">
+            <button
+              className={buttonClasses("Recent Product")}
+              onClick={() => setSelectedCategory("Recent Product")}
+            >
+              Latest Products
+            </button>
+
+            <button
+              className={buttonClasses("Featured")}
+              onClick={() => setSelectedCategory("Featured")}
+            >
+              Featured
+            </button>
+
+            <button
+              className={buttonClasses("New Product")}
+              onClick={() => setSelectedCategory("New Product")}
+            >
+              New Products
+            </button>
+          </div>
+
+          <div className="mt-28 w-9/12 m-auto flex items-center justify-center gap-16">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="w-[210px] h-[230px] bg-white rounded-t-3xl relative flex flex-col items-center justify-end"
+              >
+                <Image
+                  src={product.image}
+                  alt={product.honeyName}
+                  width={100}
+                  height={100}
+                  className="w-[109px] h-[201px] absolute -top-20"
+                />
+
+                <div className="absolute bottom-4 flex flex-col items-center">
+                  <Image
+                    src={product.rating}
+                    alt="Rating Stars"
+                    width={100}
+                    height={100}
+                    className="w-20 h-4 mb-2"
+                  />
+
+                  <p className="text-lg font-medium">{product.honeyName}</p>
+                  <p className="text-sm">
+                    Rs {product.discountedPrice.toFixed(2)}{" "}
+                    <strike className="text-gray-500">
+                      {product.realPrice.toFixed(2)}
+                    </strike>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </section> */}
       <section
-        className="w-full h-[800px] flex flex-wrap items-start justify-between px-4 relative"
+        id="about"
+        className="relative min-h-[622px] py-12 px-4 md:px-16"
         style={{
-          backgroundImage: "url('/Hero.png')",
+          backgroundImage: "url('/Group 1000001772.svg')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className='w-3/12 absolute left-28 top-1/4'>
-          <h1 className='text-[#292E3D] font-bold text-7xl tracking-wider mb-4'>Empowering Your Financial Success Globally</h1>
-          <Button text="Learn More" className="w-36 h-14 text-base font-bold bg-maroon text-white mx-auto sm:mx-0" />
-        </div>
-      </section>
+        {/* Floating Image */}
+        <Image
+          src="/8e757c66dd3f4caa7823464e21c36bdc 1.svg"
+          alt="bg"
+          width={100}
+          height={100}
+          className="w-32 md:w-48 h-28 md:h-40 absolute -top-16 md:-top-24 left-1/2 -translate-x-1/2"
+        />
 
-      <section className="w-full pt-10 pb-20"  id="service">
-        <Heading text="Our Services" />
-        <ServiceCard cards={cardsData} />
-      </section>
+        {/* Section Title */}
+        <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10">
+          Trending Products
+        </h2>
+        <hr className="bg-[#FFC300] h-1 w-20 md:w-[93px] m-auto rounded-full" />
 
-      <section className="w-full text-center flex items-start justify-center px-4 md:px-8 bg-[#F5F5F5] gap-8"  id="about">
-        <div className='left flex items-center justify-center flex-col py-28 gap-4'>
-          <div className='top flex items-center justify-center gap-5'>
-            <Image src="/chooseUs1.png" alt="logo" width={100} height={100} className='w-[253px] h-[142px]' />
-            <Image src="/chooseUs2.png" alt="logo" width={100} height={100} className='w-[271px] h-[190px]' />
-          </div>
-          <div className='bottom flex items-center justify-center gap-5'>
-            <Image src="/chooseUs3.png" alt="logo" width={100} height={100} className='w-[199px] h-[159px]' />
-            <Image src="/chooseUs4.png" alt="logo" width={100} height={100} className='w-[317px] h-[171px]' />
-          </div>
-        </div>
-
-        <div className='right py-28 text-start mt-5'>
-          <h2 className='text-maroon font-bold text-xl'>Why Choose us?</h2>
-          <h1 className='text-[#292E3D] font-bold text-[40px] leading-tight'>Reliable, Resilient, Ready <br />
-            for Your Success</h1>
-
-          <ul className='text-[#292E3D] list-disc opacity-80 pl-4'>
-            <li>Global Expertise</li>
-            <li>Reliable Support</li>
-            <li>24/7 Accessibility</li>
-            <li>Resilient Strategies</li>
-            <li>Client-Centric Approach</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className='w-full'  id="testimonial">
-        <Heading text="Testimonial" />
-        <div className="testimonial-container pb-32 mt-10 px-4">
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              768: { slidesPerView: 5 },
-            }}
-            onSlideChange={handleSlideChange}
+        {/* Category Buttons */}
+        <div className="mt-6 md:mt-10 flex flex-wrap justify-center gap-3 md:gap-6">
+          <button
+            className={buttonClasses("Recent Product")}
+            onClick={() => setSelectedCategory("Recent Product")}
           >
-            {testimonials.map((testimonial, index) => (
-              <SwiperSlide key={testimonial.id}>
-                <div
-                  className={`testimonial-card w-[275px] h-[324px] rounded-[10px] p-5 mb-14 
-                  ${index === activeIndex ? 'bg-[#D3CFFF] bg-opacity-25' : 'bg-[#F5F2ED]'} 
-                  ${index === activeIndex ? 'text-white' : 'text-black'}
-                `}
-                  style={{
-                    boxShadow: 'rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px',
-                  }}
-                >
-                  <Image src="/commas.svg" alt="commas" width={100} height={100} className='w-[57px] h-[61px]' />
-                  <div className='flex flex-col items-stretch justify-between h-56'>
-                    <p className="quote text-xl font-medium text-[#413D45]">{testimonial.text}</p>
-                    <p className="author mt-auto text-[#67646A] font-medium text-[9px]">
-                      {testimonial.name}, {testimonial.location}
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
+            Latest Products
+          </button>
 
-      <section className='bg-maroon pt-5 pb-20'>
-        <div className='flex items-center justify-center h-20 mt-5'>
-          <h2 className="text-3xl lg:text-4xl text-center font-bold text-white">Our Team</h2>
+          <button
+            className={buttonClasses("Featured")}
+            onClick={() => setSelectedCategory("Featured")}
+          >
+            Featured
+          </button>
+
+          <button
+            className={buttonClasses("New Product")}
+            onClick={() => setSelectedCategory("New Product")}
+          >
+            New Products
+          </button>
         </div>
 
-        <div className='flex items-center justify-center flex-wrap gap-9 w-9/12 mx-auto mt-14'>
-          {team.map((item, i) => (
-            <div className='text-white text-center mt-12' key={i}>
-              <div className='w-[227px] h-[122px] bg-white rounded-[20px] relative'>
+        {/* Products Grid */}
+        <div className= "mt-28 w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-24 place-items-center">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="w-[210px] h-[230px] bg-white rounded-t-3xl relative flex flex-col items-center justify-end shadow-lg"
+            >
+              {/* Product Image */}
+              <Image
+                src={product.image}
+                alt={product.honeyName}
+                width={100}
+                height={100}
+                className="w-[109px] h-[201px] absolute -top-20"
+              />
+
+              {/* Product Details */}
+              <div className="absolute bottom-4 flex flex-col items-center">
                 <Image
-                  src={item.image}
-                  alt="team Img"
+                  src={product.rating}
+                  alt="Rating Stars"
                   width={100}
                   height={100}
-                  className="w-56 h-48 mx-auto absolute bottom-0"
+                  className="w-20 h-4 mb-2"
                 />
+
+                <p className="text-lg font-medium">{product.honeyName}</p>
+                <p className="text-sm">
+                  Rs {product.discountedPrice.toFixed(2)}{" "}
+                  <strike className="text-gray-500">
+                    {product.realPrice.toFixed(2)}
+                  </strike>
+                </p>
               </div>
-              <h2 className='font-bold text-xl mt-3'>{item.name}</h2>
-              <p className='italic text-[15px]'>{item.title}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className='w-full h-[1000px] flex items-center justify-center relative'>
-        <Image
-          src="/ball1.svg"
-          alt="blur"
-          width={100}
-          height={100}
-          className="w-[228px] h-[227px] mx-auto absolute top-14 -left-16"
-        />
 
-        <Image
-          src="/ball2.svg"
-          alt="blur"
-          width={100}
-          height={100}
-          className="w-[228px] h-[227px] mx-auto absolute top-1/2 left-16"
-        />
 
-        <Image
-          src="/ball3.svg"
-          alt="blur"
-          width={100}
-          height={100}
-          className="w-[310px] h-[309px] mx-auto absolute bottom-0 right-20 "
-        />
-        <div className='bg-[#FAFAFA] w-9/12 rounded-[10px] px-20 relative shadow-lg' style={{
-          boxShadow: 'rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px',
-        }}>
-          <div className='flex items-center justify-center h-20 mt-10 gap-4'>
-            <span className='w-4 h-4 bg-maroon rounded-full'></span>
-            <h2 className="text-3xl lg:text-4xl text-center font-bold text-maroon"> Frequently Asked Questions</h2>
-            <span className='w-4 h-4 bg-maroon rounded-full'> </span>
+      <section className=' relative text-[#504E4E]' >
+        <h2 className='text-center font-semibold text-[30px]'>Why Choose Us</h2>
+        <hr className='bg-[#FFC300] h-1 w-[93px] m-auto rounded-full' />
+        <Image src="/honeyStick.svg" alt="bg" width={100} height={100} className='top-0 right-0 absolute w-[595px] h-[310px]' />
+
+        <div className='w-9/12 m-auto'>
+          <div className='w-6/12'>
+            <h2 className='semibold text-2xl'>Pure & Natural Honey</h2>
+            <hr className='w-[232px] bg-[#FFC300] h-1 rounded-full' />
+
+            <p className='text-xl'>Our honey is 100% pure, unprocessed, and free from additives.
+              Harvested directly from nature, it retains all its natural nutrients,
+              flavors, and goodness.</p>
           </div>
-          <Accordion />
+        </div>
+
+        <div className='w-10/12 ms-auto'>
+          <div className='flex bg-red-100 justify-center align-center gap-8 mb-10'>
+            <div className='left w-5/12'>
+              <Image src="/17148-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-[508px] h-[494px]' />
+            </div>
+            <div className='right w-7/12 bg-yellow-200 flex items-start justify-center flex-col'>
+              {/* <h2 className='semibold text-2xl'>Sourced from the Finest Locations</h2> */}
+              <span className='semibold text-2xl border-b-4  border-b-[#FFC300]'>Sourced from the Finest Locations  </span>
+
+              <p className='w-8/12'>We carefully source our honey from trusted beekeepers in pristine,
+                untouched regions. Each jar is a taste of nature&apos;s best, ensuring
+                exceptional quality and authenticity.</p>
+            </div>
+          </div>
+
+          <div className='flex bg-green-100 justify-between align-center gap-8'>
+            <div className='left w-5/12 flex items-start justify-center flex-col'>
+              <span className='semibold text-2xl border-b-4  border-b-[#FFC300]'>Health in Every Drop</span>
+
+              <p className=''>Packed with antioxidants, enzymes, and vitamins, our honey
+                isn’t just delicious—it’s a natural superfood that supports
+                immunity and promotes overall wellness.</p>
+            </div>
+            <div className='right w-7/12 bg-yellow-200 flex items-end justify-center flex-col'>
+              <Image src="/2149442386-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-[508px] h-[494px]' />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className='w-full bg-maroon h-[126px] flex items-center justify-center'>
-        <div className=' w-10/12 flex items-center justify-between'>
-          <div className='text-white'>
-            <h1 className='font-bold text-4xl'>Have any question ?</h1>
-            <p className='text-xl font-light'>Ask us anything, we would love to answer.</p>
-          </div>
+      <section className=''>
+        <Image src="/Rectangle 7.svg" alt="bg" width={100} height={100} className='w-full h-[191px]' />
+        {/* <div className='w-full h-[191px] bg-black'>
 
-          <div className='flex items-center justify-center gap-5'>
-            <Button text="Contact Us" className="w-36 h-14 text-base font-bold bg-white text-maroon mx-auto sm:mx-0" />
-          </div>
-        </div>
+        </div> */}
       </section>
 
-
-      <section className='w-full bg-maroon h-[695px] flex items-center justify-center mt-10' id="contact">
-        <div className='w-9/12 h-[595px] bg-white rounded-[10px] flex items-center justify-between'>
-          <div className='left mx-auto w-6/12 flex items-start justify-center flex-col text-[#413D45]'>
-            <h1 className='text-4xl font-bold mb-2'>Lets Connect.</h1>
-            <p className='text-sm mb-5 w-full'>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum<br />
-              Lorem ipsum</p>
-
-            <form className='w-full'>
-              <div className='flex items-center justify-between gap-10 mb-10'>
-                <div className='w-1/2'>
-                  <label className='block font-medium text-sm'>First Name</label>
-                  <input className='border-b-1 border-[#8D8D8D] w-full outline-none' type='text' />
-                </div>
-
-                <div className='w-1/2'>
-                  <label className='block font-medium text-sm'>Last Name</label>
-                  <input type='text' className='border-b-1 border-[#8D8D8D] w-full  outline-none' />
-                </div>
-              </div>
-
-              <div className='flex items-center justify-between gap-10 mb-10'>
-                <div className='w-1/2'>
-                  <label className='block font-medium text-sm'>Email</label>
-                  <input type='email' className='border-b-1 border-[#8D8D8D] w-full  outline-none' />
-                </div>
-
-                <div className='w-1/2'>
-                  <label className='block font-medium text-sm'>Phone Number</label>
-                  <input type='number' className='border-b-1 border-[#8D8D8D] w-full  outline-none' />
-                </div>
-              </div>
-
-              <div className='flex items-start justify-between flex-col'>
-                <label className='block font-medium text-sm mb-2'>Message</label>
-                <textarea name="" id="" placeholder='Write your message..' className='border-b-1 border-[#8D8D8D] w-full  outline-none'></textarea>
-              </div>
-
-              <div className='flex items-center justify-end'>
-                <Button text="Send Message" className="w-40 h-10 text-base font-bold bg-maroon text-white ms-auto mt-10 " />
-              </div>
-            </form>
-          </div>
-          <div className='right'>
-            <Image
-              src="/contact.svg"
-              alt="contact"
-              width={100}
-              height={100}
-              className="w-[425px] h-[595px]"
-            />
-          </div>
-        </div>
+      <section className=' h-96'>
+        <h1>this is testimonial</h1>
+        <h1>this is testimonial</h1>
+        <h1>this is testimonial</h1>
+        <h1>this is testimonial</h1>
+        <h1>this is testimonial</h1>
+        <h1>this is testimonial</h1>
       </section>
     </div>
   )

@@ -1,0 +1,85 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "image": "https://example.com/images/honey1.jpg",
+            "rating": "⭐⭐⭐⭐",
+            "honeyName": "Wildflower Honey",
+            "discountedPrice": 12.99,
+            "realPrice": 15.99,
+            "category": "Recent Product"
+        },
+        {
+            "id": 2,
+            "image": "https://example.com/images/honey2.jpg",
+            "rating": "⭐⭐⭐⭐⭐",
+            "honeyName": "Organic Clover Honey",
+            "discountedPrice": 14.49,
+            "realPrice": 18.49,
+            "category": "Recent Product"
+        },
+        {
+            "id": 3,
+            "image": "https://example.com/images/honey3.jpg",
+            "rating": "⭐⭐⭐",
+            "honeyName": "Acacia Honey",
+            "discountedPrice": 10.99,
+            "realPrice": 13.99,
+            "category": "Recent Product"
+        },
+        {
+            "id": 4,
+            "image": "https://example.com/images/honey4.jpg",
+            "rating": "⭐⭐⭐⭐⭐",
+            "honeyName": "Raw Manuka Honey",
+            "discountedPrice": 25.99,
+            "realPrice": 30.99,
+            "category": "Featured"
+        },
+        {
+            "id": 5,
+            "image": "https://example.com/images/honey5.jpg",
+            "rating": "⭐⭐⭐⭐",
+            "honeyName": "Lavender Honey",
+            "discountedPrice": 18.99,
+            "realPrice": 22.99,
+            "category": "Featured"
+        },
+        {
+            "id": 6,
+            "image": "https://example.com/images/honey6.jpg",
+            "rating": "⭐⭐⭐⭐",
+            "honeyName": "Eucalyptus Honey",
+            "discountedPrice": 16.99,
+            "realPrice": 20.99,
+            "category": "Featured"
+        },
+        {
+            "id": 7,
+            "image": "https://example.com/images/honey7.jpg",
+            "rating": "⭐⭐⭐⭐⭐",
+            "honeyName": "Golden Forest Honey",
+            "discountedPrice": 13.99,
+            "realPrice": 17.99,
+            "category": "New Product"
+        },
+        {
+            "id": 8,
+            "image": "https://example.com/images/honey8.jpg",
+            "rating": "⭐⭐⭐",
+            "honeyName": "Sunflower Honey",
+            "discountedPrice": 11.49,
+            "realPrice": 14.49,
+            "category": "New Product"
+        },
+        {
+            "id": 9,
+            "image": "https://example.com/images/honey9.jpg",
+            "rating": "⭐⭐⭐⭐",
+            "honeyName": "Alpine Honey",
+            "discountedPrice": 19.99,
+            "realPrice": 23.99,
+            "category": "New Product"
+        }
+    ]
+}
