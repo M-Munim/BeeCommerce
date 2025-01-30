@@ -1,19 +1,13 @@
 "use client";
 
-import Accordion from '@/components/Accordian'
-import Button from '@/components/Button'
-import Heading from '@/components/Heading'
-import ServiceCard from '@/components/ServiceCard'
-import cardsData, { team } from '@/data'
+
 import Image from 'next/image'
 import React from 'react'
 import { useState } from 'react';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Link from 'next/link';
+import TestimonialSlider from '@/components/Testimonial';
 
 
 
@@ -170,82 +164,9 @@ const page = () => {
         </div>
       </section>
 
-
-      {/* <section className=' h-[622px] relative' id='about' style={{
-        backgroundImage: "url('/Group 1000001772.svg')",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}>
-        <Image src="/8e757c66dd3f4caa7823464e21c36bdc 1.svg" alt="bg" width={100} height={100} className='w-48 h-40 absolute -top-24 left-1/2' />
-
-
-        <h2 className='text-center font-semibold text-[30px] pt-20'>Trending Products</h2>
-        <hr className='bg-[#FFC300] h-1 w-[93px] m-auto rounded-full' />
-        <div className='mt-9'>
-          <div className="flex items-center justify-center gap-6">
-            <button
-              className={buttonClasses("Recent Product")}
-              onClick={() => setSelectedCategory("Recent Product")}
-            >
-              Latest Products
-            </button>
-
-            <button
-              className={buttonClasses("Featured")}
-              onClick={() => setSelectedCategory("Featured")}
-            >
-              Featured
-            </button>
-
-            <button
-              className={buttonClasses("New Product")}
-              onClick={() => setSelectedCategory("New Product")}
-            >
-              New Products
-            </button>
-          </div>
-
-          <div className="mt-28 w-9/12 m-auto flex items-center justify-center gap-16">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="w-[210px] h-[230px] bg-white rounded-t-3xl relative flex flex-col items-center justify-end"
-              >
-                <Image
-                  src={product.image}
-                  alt={product.honeyName}
-                  width={100}
-                  height={100}
-                  className="w-[109px] h-[201px] absolute -top-20"
-                />
-
-                <div className="absolute bottom-4 flex flex-col items-center">
-                  <Image
-                    src={product.rating}
-                    alt="Rating Stars"
-                    width={100}
-                    height={100}
-                    className="w-20 h-4 mb-2"
-                  />
-
-                  <p className="text-lg font-medium">{product.honeyName}</p>
-                  <p className="text-sm">
-                    Rs {product.discountedPrice.toFixed(2)}{" "}
-                    <strike className="text-gray-500">
-                      {product.realPrice.toFixed(2)}
-                    </strike>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </section> */}
       <section
         id="about"
-        className="relative min-h-[622px] py-12 px-4 md:px-16"
+        className="relative min-h-[622px] py-12 px-4 md:px-16 text-[#504E4E]"
         style={{
           backgroundImage: "url('/Group 1000001772.svg')",
           backgroundPosition: "center",
@@ -253,7 +174,6 @@ const page = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Floating Image */}
         <Image
           src="/8e757c66dd3f4caa7823464e21c36bdc 1.svg"
           alt="bg"
@@ -262,13 +182,11 @@ const page = () => {
           className="w-32 md:w-48 h-28 md:h-40 absolute -top-16 md:-top-24 left-1/2 -translate-x-1/2"
         />
 
-        {/* Section Title */}
-        <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10">
+        <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10 mb-2">
           Trending Products
         </h2>
         <hr className="bg-[#FFC300] h-1 w-20 md:w-[93px] m-auto rounded-full" />
 
-        {/* Category Buttons */}
         <div className="mt-6 md:mt-10 flex flex-wrap justify-center gap-3 md:gap-6">
           <button
             className={buttonClasses("Recent Product")}
@@ -292,14 +210,12 @@ const page = () => {
           </button>
         </div>
 
-        {/* Products Grid */}
-        <div className= "mt-28 w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-24 place-items-center">
+        <div className="mt-28 w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-24 place-items-center">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="w-[210px] h-[230px] bg-white rounded-t-3xl relative flex flex-col items-center justify-end shadow-lg"
+              className="w-[210px] h-[230px] bg-white rounded-t-3xl relative flex flex-col items-center justify-end"
             >
-              {/* Product Image */}
               <Image
                 src={product.image}
                 alt={product.honeyName}
@@ -308,7 +224,6 @@ const page = () => {
                 className="w-[109px] h-[201px] absolute -top-20"
               />
 
-              {/* Product Details */}
               <div className="absolute bottom-4 flex flex-col items-center">
                 <Image
                   src={product.rating}
@@ -331,68 +246,74 @@ const page = () => {
         </div>
       </section>
 
-
-
-      <section className=' relative text-[#504E4E]' >
-        <h2 className='text-center font-semibold text-[30px]'>Why Choose Us</h2>
+      <section className='relative text-[#504E4E] overflow-hidden' >
+        <Image src="/2148371975 1.svg" alt="bg" width={100} height={100} className='top-0 absolute w-[380px] right-0 h-auto z-0' />
+        <h2 className='text-center font-semibold text-[30px] pt-10'>Why Choose Us</h2>
         <hr className='bg-[#FFC300] h-1 w-[93px] m-auto rounded-full' />
-        <Image src="/honeyStick.svg" alt="bg" width={100} height={100} className='top-0 right-0 absolute w-[595px] h-[310px]' />
 
-        <div className='w-9/12 m-auto'>
-          <div className='w-6/12'>
-            <h2 className='semibold text-2xl'>Pure & Natural Honey</h2>
+
+        <div className='w-9/12 m-auto mt-10 z-10 relative'>
+          <div className='w-full lg:w-6/12'>
+            <h2 className='semibold text-2xl mb-2'>Pure & Natural Honey</h2>
             <hr className='w-[232px] bg-[#FFC300] h-1 rounded-full' />
 
-            <p className='text-xl'>Our honey is 100% pure, unprocessed, and free from additives.
+            <p className='text-xl mt-4'>Our honey is 100% pure, unprocessed, and free from additives.
               Harvested directly from nature, it retains all its natural nutrients,
               flavors, and goodness.</p>
           </div>
         </div>
 
-        <div className='w-10/12 ms-auto'>
-          <div className='flex bg-red-100 justify-center align-center gap-8 mb-10'>
-            <div className='left w-5/12'>
-              <Image src="/17148-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-[508px] h-[494px]' />
+        <div className='w-11/12 ms-auto'>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-8 '>
+
+            <div className='left w-full md:w-5/12'>
+              <Image src="/17148-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-full max-w-[508px] h-auto' />
             </div>
-            <div className='right w-7/12 bg-yellow-200 flex items-start justify-center flex-col'>
-              {/* <h2 className='semibold text-2xl'>Sourced from the Finest Locations</h2> */}
+
+            <div className='right w-full md:w-7/12 flex items-start justify-center flex-col  md:mt-14 xl:mt-20'>
               <span className='semibold text-2xl border-b-4  border-b-[#FFC300]'>Sourced from the Finest Locations  </span>
 
-              <p className='w-8/12'>We carefully source our honey from trusted beekeepers in pristine,
+              <p className='w-11/12 lg:w-8/12 text-xl mt-4'>We carefully source our honey from trusted beekeepers in pristine,
                 untouched regions. Each jar is a taste of nature&apos;s best, ensuring
                 exceptional quality and authenticity.</p>
             </div>
           </div>
 
-          <div className='flex bg-green-100 justify-between align-center gap-8'>
-            <div className='left w-5/12 flex items-start justify-center flex-col'>
+          <div className='flex flex-col-reverse md:flex-row justify-center items-center gap-8 mt-10 md:mt-0'>
+            <div className='left w-full lg:w-5/12 flex items-start justify-center flex-col  xl:ml-12'>
               <span className='semibold text-2xl border-b-4  border-b-[#FFC300]'>Health in Every Drop</span>
 
-              <p className=''>Packed with antioxidants, enzymes, and vitamins, our honey
+              <p className='text-xl mt-4'>Packed with antioxidants, enzymes, and vitamins, our honey
                 isn’t just delicious—it’s a natural superfood that supports
                 immunity and promotes overall wellness.</p>
             </div>
-            <div className='right w-7/12 bg-yellow-200 flex items-end justify-center flex-col'>
-              <Image src="/2149442386-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-[508px] h-[494px]' />
+
+            <div className='right w-full md:w-7/12 flex items-end justify-center flex-col '>
+              <Image src="/2149442386-Photoroom 1.svg" alt="bg" width={100} height={100} className='w-full max-w-[508px] h-auto' />
             </div>
           </div>
         </div>
       </section>
 
-      <section className=''>
-        <Image src="/Rectangle 7.svg" alt="bg" width={100} height={100} className='w-full h-[191px]' />
-        {/* <div className='w-full h-[191px] bg-black'>
-
-        </div> */}
+      <section className="mt-20">
+        <div
+          className="w-full h-[191px] bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/Rectangle 7.svg')"
+            ,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
       </section>
 
-      <section className=' h-96'>
-        <h1>this is testimonial</h1>
-        <h1>this is testimonial</h1>
-        <h1>this is testimonial</h1>
-        <h1>this is testimonial</h1>
-        <h1>this is testimonial</h1>
-        <h1>this is testimonial</h1>
+      <section>
+        <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10 mb-2">
+          Client Testimonials
+        </h2>
+        <hr className="bg-[#FFC300] h-1 w-20 md:w-[93px] m-auto rounded-full" />
+        <TestimonialSlider />
       </section>
     </div>
   )
