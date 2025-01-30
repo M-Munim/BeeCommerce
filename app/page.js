@@ -179,7 +179,7 @@ const page = () => {
           alt="bg"
           width={100}
           height={100}
-          className="w-32 md:w-48 h-28 md:h-40 absolute -top-16 md:-top-24 left-1/2 -translate-x-1/2"
+          className="w-32 md:w-48 h-28 md:h-40 absolute -top-16 md:-top-24  left-40 md:left-[540px]"
         />
 
         <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10 mb-2">
@@ -295,6 +295,7 @@ const page = () => {
         </div>
       </section>
 
+
       <section className="mt-20">
         <div
           className="w-full h-[191px] bg-cover bg-center"
@@ -307,7 +308,6 @@ const page = () => {
           }}
         />
       </section>
-
       <section>
         <h2 className="text-center font-semibold text-2xl md:text-[30px] pt-10 mb-2">
           Client Testimonials

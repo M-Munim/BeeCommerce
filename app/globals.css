@@ -17,10 +17,72 @@ body {
 
 }
 
-.pacifico{
+.pacifico {
   font-family: 'Pacifico', cursive !important;
 }
 
-.gradBtn{
+.gradBtn {
   background: linear-gradient(180deg, #FFC300 0%, #F3A920 100%);
+}
+
+
+
+/* .swiper_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hex-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px; 
+  margin-bottom: 20px;
+}
+
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid white;
+} */
+
+
+
+
+
+
+
+
+.swiper_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hex-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid white;
+}
+
+.swiper-pagination-bullet {
+  background: #FFCD29 !important;
 }
